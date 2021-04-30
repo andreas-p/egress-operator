@@ -12,7 +12,6 @@ type exactNameRule struct {
 	From       string
 	To         string
         ResponseRules []rewrite.ResponseRule
-//	rewrite.ResponseRule
 }
 
 var _ rewrite.Rule = &exactNameRule{}
@@ -31,5 +30,4 @@ func (rule *exactNameRule) Rewrite(ctx context.Context, state request.Request) r
 func (rule *exactNameRule) Mode() string { return rule.NextAction }
 
 // GetResponseRule return a rule to rewrite the response with. Currently not implemented.
-// func (rule *exactNameRule) GetResponseRule() rewrite.ResponseRule { return rule.ResponseRule }
 func (rule *exactNameRule) GetResponseRules() []rewrite.ResponseRule {return rule.ResponseRules }
